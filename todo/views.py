@@ -8,20 +8,10 @@ def index(request):
   if 'user_id' not in request.session:
     return redirect('/')
   else:
-    current_user = User.objects.get(id= request.session['user_id'])
-    if len(current_user.lists.all()) == 0:
-      temp_mess = request.session['name'] + ',' + ' Welcome to my Todo-List App and plan your chores!'
-  
-      context = {
-        'items': Todo.objects.all(),
-        'temp_message': temp_mess,
-      }
-      return render(request, 'todos/index.html', context)
-    else:
-      context = {
+    context = {
       'items': Todo.objects.all(),
       }
-      return render(request, 'todos/index.html', context)
+    return render(request, 'todos/index.html', context)
 
 def completed(request):
   context = {
