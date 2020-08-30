@@ -1,0 +1,28 @@
+
+.items {
+  display: flex;
+  justify-content: space-between;
+}
+.done {
+  text-decoration: line-through;
+}
+.empty_boxes {
+  font-size: 25px !important;
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+}
+.one_item {
+  list-style: none;
+  padding-top: 8px;
+}
+#face {
+  font-size: 29px;
+}
+.container {
+  min-height: 100vh !important;
+}
+ul li {
+  list-style: none;
+}

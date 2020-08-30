@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Registration and Login</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body class="bg-dark text-white">
+  <div class="container mt-5">
+
+    {% if messages %}
+    <ul class="messages list-group mt-3 alert alert-danger mb-3">
+      {% for message in messages %}
+      <li class="list-group-item" {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <div class="row m-auto">
+      <div class="col-md-6 mb-3">
+        <h4 class="mb-3">Log In</h4>
+        <form action="/login" method="post" class="form-group w-75">
+        {% csrf_token %}
+        <label for="eml">Email</label>
+        <input type="email" name="email" id="eml" class="form-control form-control-sm mb-2">
+        <label for="pss">Password</label>
+        <input type="password" name="password" id="pss" class="form-control form-control-sm">
+        <button class="btn btn-outline-light mt-3">Log In</button>
+        </form>
+      </div>
+          <!--Registration Form-->
+          <div class="col-md-6">
+            <h4>Registration</h4>
+            <form action="/register" method="post" class="form-group w-75 mt-3">
+            {% csrf_token %}
+            <label for="fn">First Name</label>
+            <input type="text" name="first" id="fn" class="form-control form-control-sm mb-2">
+            <label for="ln">Last Name</label>
+            <input type="text" name="last" id="ln" class="form-control form-control-sm mb-2">
+            <label for="em">Email</label>
+            <input type="email" name="email" id="em" class="form-control  form-control-sm mb-2">
+            <label for="ps">Password</label>
+            <input type="password" name="password" id="ps" class="form-control form-control-sm mb-2">
+            <label for="cps">Confirm Password</label>
+            <input type="password" name="cpassword" id="cps" class="form-control form-control-sm">
+            <button class="btn btn-outline-light mt-3" id="reg">Register</button>
+            </form>
+          </div>
+    </div>
+  </div>
+</body>
+</html>
