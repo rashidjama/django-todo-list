@@ -1,0 +1,13 @@
+<ul class="list-group">
+  <span class="text-right" id="cd"></span>
+  {% for item in items %}
+  {% if item.user.id == request.session.user_id %}
+    {% if item.completed == False %}
+  <div class="items d-flex align-items-end border-bottom">
+    <li class="one_item "><a href="/todo/{{item.id}}/done"><span class="text-white empty_boxes">&#9744;</span></a> <span>{{item.item}}</span></li>
+  <a href="/todo/{{item.id}}/confirm" class="text-white">&#10005;</a>
+  </div>
+  {% endif %}
+  {% endif %}
+  {% endfor %}
+</ul>

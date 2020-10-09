@@ -9,13 +9,13 @@ def index(request):
     return redirect('/')
   else:
     context = {
-      'items': Todo.objects.all(),
+      'items': Todo.objects.order_by('-id'),
       }
     return render(request, 'todos/index.html', context)
 
 def completed(request):
   context = {
-     'items': Todo.objects.all()
+     'items': Todo.objects.order_by('-id')
   }
   return render(request, 'todos/completed.html', context)
 
